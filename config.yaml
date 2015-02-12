@@ -2,4 +2,4 @@ name: weibome
 version: 1
 libraries:
 - name: "django"
-  version:"1.4"
+  version: "1.4"
