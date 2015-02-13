@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'weibome.views.home', name='home'),
+    url(r'^$', 'weibome.views.home', name='home'),
     # url(r'^weibome/', include('weibome.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
