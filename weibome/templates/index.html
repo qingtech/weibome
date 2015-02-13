@@ -3,6 +3,20 @@
 		<title>Hello, weiboMe!</title>
 		<meta http-equiv=Content-Type content="text/html;charset=utf-8">
 		<meta property="wb:webmaster" content="96ba2a53451a5423" />
+		<style type="text/css">
+			.weibo{border:1px solid #F00}
+		</style>
 	</head>
-	<body><h1>Hello, welcome to weiboMe!</h1></body>
+	<body>
+		<div class="header">
+			<h1>Hello, welcome to weiboMe!</h1>
+		</div>
+		<div class="content">
+			{% for s in statuse_list %}
+				<div class="weibo">
+					<h2>{{s.text}}</h2>
+				</div>
+			{% endfor %}
+		</div>
+	</body>
 </html>
