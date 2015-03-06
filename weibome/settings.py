@@ -20,7 +20,7 @@ else:
     MYSQL_HOST = 'localhost'
     MYSQL_PORT = '3306'
     MYSQL_USER = 'root'
-    MYSQL_PASS = '147258'
+    MYSQL_PASS = '123'
     MYSQL_DB   = 'weibome'
 
 DATABASES = {
