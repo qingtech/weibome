@@ -10,20 +10,24 @@ def home(request):
 	from sinaweibopy.weibo import APIClient
 	user = None
 	client = None
-	if request.session.has_key('uid'):
+	if 'uid' in request.session:
 		uid = request.session['uid']
-		user = WbUser.objects.get(id=uid)
-		from weime.models import WeiboAuth
-		auth = WeiboAuth.objects.filter(user__id = uid)[0]
-		app1 = auth.weibo_app
-		APP_KEY = app1.app_key
-		APP_SECRET = app1.app_secret
-		CALLBACK_URL = app1.callback_url
-		client = APIClient(app_key=APP_KEY, app_secret=APP_SECRET, redirect_uri=CALLBACK_URL)
-		client.set_access_token(auth.access_token, auth.expires_in)
+		print 'uid=%s'%uid
+		user = WbUser.objects.filter(id=uid)
+		if len(user) > 0:
+			user = user[0]
+			#user = WbUser.objects.get(id=uid)
+			from weime.models import WeiboAuth
+			auth = WeiboAuth.objects.filter(user__id = uid)[0]
+			app1 = auth.weibo_app
+			APP_KEY = app1.app_key
+			APP_SECRET = app1.app_secret
+			CALLBACK_URL = app1.callback_url
+			client = APIClient(app_key=APP_KEY, app_secret=APP_SECRET, redirect_uri=CALLBACK_URL)
+			client.set_access_token(auth.access_token, auth.expires_in)
 	
 	#user is not login
-	if not user and request.GET.has_key('code'):
+	if not user and 'code' in request.GET:
 
 		code = request.GET['code']
 	

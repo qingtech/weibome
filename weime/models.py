@@ -49,7 +49,7 @@ class WbUser(models.Model):
     verified = models.BooleanField(default=False)
     verified_type = models.IntegerField(null=True, blank=True)
     remark = models.CharField(max_length=100, null=True)
-    status = models.BigIntegerField()
+    status = models.BigIntegerField(null=True, blank=True)
     allow_all_comment = models.BooleanField(default=False)
     avatar_large = models.CharField(max_length=45, null=True)
     avatar_hd = models.CharField(max_length=45, null=True)
